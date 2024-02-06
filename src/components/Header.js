@@ -3,7 +3,7 @@ import '../styles/header.css';
 import { useEffect, useState } from 'react';
 import { fetchAllCategories } from '../services/filterApi';
 
-export default function Header({categoryFilter}){
+export default function Header({categoryFilter, categoryHandler}){
     const [categories, setCategories] = useState([]);
 
     const fetchData = () => {
@@ -16,7 +16,8 @@ export default function Header({categoryFilter}){
 
     const filterByCategory = (event) => {
         const category = event.target.value;
-        categoryFilter(category);
+        // categoryFilter(category);
+        categoryHandler(category);
     }
 
     useEffect(() => {
